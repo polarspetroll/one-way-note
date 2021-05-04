@@ -1,6 +1,6 @@
 -- mysql
 
 CREATE TABLE ownote (
-  text TINYTEXT,
-  path VARCHAR(20) UNIQUE
+  text TEXT,
+  path VARCHAR(10) UNIQUE
 );
