@@ -32,6 +32,10 @@ func Index(w http.ResponseWriter, r *http.Request) {
     out.Text = "ERROR!text too long."
     temp.Execute(w, out)
     return
+  }else if text == "" || text == " " {
+    out.Text = "text can't be empty"
+    temp.Execute(w, out)
+    return
   }
   path := RandPath()
   if Insert(text, path, DB) > 1 {
@@ -103,7 +107,7 @@ func Insert(text string, path string, DB *sql.DB) int64 {
 }
 
 func RandPath() string {
-	r := make([]byte, 10)
+	r := make([]byte, 5)
 	rand.Read(r)
 	return hex.EncodeToString(r)
 }
