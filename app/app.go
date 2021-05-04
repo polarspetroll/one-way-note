@@ -71,7 +71,7 @@ func GetText(w http.ResponseWriter, r *http.Request) {
     http.Error(w, http.StatusText(500), 500)
     return
   }
-  out.Val = template.HTMLEscapeString(text)
+  out.Val = text
   temp.Execute(w, out)
 }
 
